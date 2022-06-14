@@ -151,6 +151,12 @@
 .mt2 {
   margin-top: 2em;
 }
+.mb1 {
+  margin-bottom: 1em;
+}
+.mb2 {
+  margin-bottom: 2em;
+}
 
 /* Border Styles */
 .bt {
@@ -171,6 +177,8 @@
 .bcLightGray {
   border-color: lightgray
 }
+
+/* Light / Dark Mode */
 
 
 /* 
