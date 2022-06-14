@@ -6,7 +6,7 @@ import "./styles.css";
 function WeatherDisplay(d: WeatherProps) {
   const modes = d.d.current.is_day
   return (
-    <div className={`w90vw h100vh ma por ${modes === 1 ? `lightMode` : `darkMode`}`}>
+    <div className={`w90vw h90vh ma por ${modes === 1 ? `lightMode` : `darkMode`}`}>
       <Clock>
         <div className="pb03 ft12">{d.d.location.localtime}{modes === 1 ? "pm" : "am"}</div>
         <div className="cGray ft10">Data last updated: {d.d.current.last_updated}{modes === 1 ? "pm" : "am"}</div>
@@ -21,9 +21,9 @@ function WeatherDisplay(d: WeatherProps) {
             </div>
           </div>
           <div className="f w90pc jcsa cGray ftBold ft14 mt2 bt bw1 bcLightGray pt1">
-            <span>Feels like: {d.d.current.feelslike_f} &deg;</span>
-            <span>Humidity: {d.d.current.humidity} &deg;</span>
-            <span>Wind: {d.d.current.gust_mph}mph</span>
+            <span className="tac">Feels like: <br/>{d.d.current.feelslike_f} &deg;</span>
+            <span className="tac">Humidity: <br/>{d.d.current.humidity} &deg;</span>
+            <span className="tac">Wind: <br/>{d.d.current.gust_mph}mph</span>
           </div>
         </>
       </Display>
@@ -89,7 +89,7 @@ function Container() {
   //
 
   return (
-    <div className="weatherApp">
+    <div className="weatherApp ofh">
       {(data.length !== 0) ? (
         <WeatherDisplay d={data}/>
       ): (

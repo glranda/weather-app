@@ -43,6 +43,9 @@
 .bu {
   bottom: unset;
 }
+.ofh {
+  overflow: hidden;
+}
 
 /* Font Sizes */
 .ft50 {

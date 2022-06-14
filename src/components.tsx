@@ -24,7 +24,7 @@ export function Display(props: Props) {
 
 export function BottomBar(props: Props) {
   return (
-    <div className="f jcc pt1 aic poa w100pc b0 tu pb2">
+    <div className="f jcc pt1 aic poa w100pc b0 tu">
       {props.children}
     </div>
   )
