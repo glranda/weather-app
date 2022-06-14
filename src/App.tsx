@@ -6,7 +6,7 @@ import "./styles.css";
 function WeatherDisplay(d: WeatherProps) {
   const modes = d.d.current.is_day
   return (
-    <div className={`w90vw h90vh ma por ${modes === 1 ? `lightMode` : `darkMode`}`}>
+    <div className={`w90vw h90vh ma por f fdc jcsb ${modes === 1 ? `lightMode` : `darkMode`}`}>
       <Clock>
         <div className="pb03 ft12">{d.d.location.localtime}{modes === 1 ? "pm" : "am"}</div>
         <div className="cGray ft10">Data last updated: {d.d.current.last_updated}{modes === 1 ? "pm" : "am"}</div>

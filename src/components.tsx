@@ -6,7 +6,7 @@ type Props = {
 
 export function Clock(props: Props) {
   return (
-    <div className="f jcr w100pc tac asfs pb1 pt1 tar">
+    <div className="f jcr w100pc asfs pb1 pt1 tar">
       <div>
         {props.children}
       </div>
@@ -16,7 +16,7 @@ export function Clock(props: Props) {
 
 export function Display(props: Props) {
   return (
-    <div className="f jcc aic poa w100pc b0 t0 fdc">
+    <div className="f jcc aic w100pc b0 t0 fdc">
       {props.children}
     </div>
   )
@@ -24,7 +24,7 @@ export function Display(props: Props) {
 
 export function BottomBar(props: Props) {
   return (
-    <div className="f jcc pt1 aic poa w100pc b0 tu">
+    <div className="f jcc pt1 aic w100pc b0 tu">
       {props.children}
     </div>
   )
