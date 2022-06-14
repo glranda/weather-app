@@ -1,40 +1,106 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { Clock, Display, BottomBar } from "./components";
+import type { WeatherProps } from "./WeatherProps.type";
+import "./styles.css";
 
-function App() {
+function WeatherDisplay(d: WeatherProps) {
+  const modes = d.d.current.is_day
+  return (
+    <div className="w90vw h100vh ma por">
+      <Clock>
+        <div className="pb03 ft12">{d.d.location.localtime}{modes === 1 ? "pm" : "am"}</div>
+        <div className="cGray ft10">Data last updated: {d.d.current.last_updated}{modes === 1 ? "pm" : "am"}</div>
+      </Clock>
+      <Display>
+        <>
+          <div className="f fdc aic">
+            <div className="ft50">{d.d.current.temp_f} &deg;</div>
+            <div className="pt1 f aic jcc">
+              <img className="pr05" src={`${d.d.current.condition.icon}`} alt={`Current Condition: ${d.d.current.condition.text}`} />
+              <span className="ttc">&mdash;&nbsp; {d.d.current.condition.text}, {modes === 1 ? "Day" : "Night"}</span>
+            </div>
+          </div>
+          <div className="f w90pc jcsa cGray ftBold ft14 mt2 bt bw1 bcLightGray pt1">
+            <span>Feels like: {d.d.current.feelslike_f} &deg;</span>
+            <span>Humidity: {d.d.current.humidity} &deg;</span>
+            <span>Wind: {d.d.current.gust_mph}mph</span>
+          </div>
+        </>
+      </Display>
+      <BottomBar>
+        <div className="tac">
+          <div className="pb03 ft16">{d.d.location.name}, {d.d.location.region}</div>
+          <div className="cGray ft12">{d.d.location.country}</div>
+        </div>
+      </BottomBar>
+    </div>
+  )
+}
 
-     // location test
-     function initGeolocation()
-     {
-        if( navigator.geolocation )
-        {
-           navigator.geolocation.getCurrentPosition( success, fail );
+function LoadingIcon() {
+  return (
+    <div className="mt2 f jcc fdc aic">
+      <p>Loading Location...</p>
+      <span className="pb1 alert"></span>
+      <img className="w140px icon" src={require('./spinning.png')} />
+    </div>
+  )
+}
+
+function Container() {
+  const [data, setData] = useState<any>([])
+
+  useEffect(() => {
+    function getLongAndLat() {
+      return new Promise((resolve, reject) => {
+        navigator.geolocation.watchPosition(function(position) {
+          console.log(position)
+        },
+        function(error) {
+          if (error.code === error.PERMISSION_DENIED) {
+            alert("Please turn on Location Services to use this app!")
+          }
+        });
+        navigator.geolocation.getCurrentPosition(resolve, reject)
+      })
+    }
+
+    const fetchcurrentWeather = async () => {
+      try {
+        const position: any = await getLongAndLat(),
+        { coords } = position,
+        url = `https://api.weatherapi.com/v1/current.json?key=d5b70fe190b04b6192a143809221306&q=${coords.latitude},${coords.longitude}`
+        await fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            setData(data)
+          })
+          .catch(e => console.log(e))
+      } catch(e: unknown) {
+        if (e instanceof Error) {
+          return {
+            message: `Things exploded (${e.message})`,
+          }
         }
-        else
-        {
-           alert("Sorry, your browser does not support geolocation services.");
-        }
-     }
-
-     function success(position: any)
-     {
-        console.log(position.coords.longitude, ' ', position.coords.latitude )
-        console.log('https://api.weatherapi.com/v1/current.json?key=d5b70fe190b04b6192a143809221306&q=48.8567,2.3508')
-     }
-
-     function fail()
-     {
-      console.log('fail');
-     }
+      }
+    }
+    fetchcurrentWeather()
+  }, [])
+  //
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <button onClick={initGeolocation}>
-          TEST BUTTON
-        </button>
-      </header>
+    <div className="weatherApp">
+      {(data.length !== 0) ? (
+        <WeatherDisplay d={data}/>
+      ): (
+        <LoadingIcon />
+      )}
     </div>
-  );
+  )
+}
+
+function App() {
+  return <Container />
 }
 
 export default App;

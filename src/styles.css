@@ -1,0 +1,188 @@
+/* Flex Styles */
+.f {
+  display: flex;
+}
+.fdc {
+  flex-direction: column;
+}
+.jcc {
+  justify-content: center;
+}
+.jcr {
+  justify-content: right;
+}
+.jcsb {
+  justify-content: space-between;
+}
+.jcsa {
+  justify-content: space-around;
+}
+.asfs {
+  align-self: flex-start;
+}
+.aic {
+  align-items: center;
+}
+
+/* Alignment Styles */
+.poa {
+  position: absolute;
+}
+.por {
+  position: relative;
+}
+.t0 {
+  top: 0;
+}
+.tu {
+  top: unset;
+}
+.b0 {
+  bottom: 0;
+}
+.bu {
+  bottom: unset;
+}
+
+/* Font Sizes */
+.ft50 {
+  font-size: 50px;
+}
+.ft16 {
+  font-size: 16px;
+}
+.ft14 {
+  font-size: 14px;
+}
+.ft12 {
+  font-size: 12px;
+}
+.ft10 {
+  font-size: 10px;
+}
+.ft9 {
+  font-size: 9px;
+}
+.ftBold {
+  font-weight: bold;
+}
+
+/* Text Styles */
+.tac {
+  text-align: center;
+}
+.tar {
+  text-align: right;
+}
+.ttu {
+  text-transform: uppercase;
+}
+.ttc {
+  text-transform: capitalize;
+}
+
+/* Colors */
+.cGray {
+  color: gray;
+}
+.cLightGray {
+  color: lightgray;
+}
+
+/* Width and Height Styles */
+.w100pc {
+  width: 100%;
+}
+.w90pc {
+  width: 90%;
+}
+.w140px {
+  width: 140px;
+}
+.w100vw {
+  width: 100vw;
+}
+.w90vw {
+  width: 90vw;
+}
+.h100vh {
+  height: 100vh;
+}
+.h90vh {
+  height: 90vh;
+}
+
+/* Padding Styles */
+.pb03 {
+  padding-bottom: .3em;
+}
+.pb05 {
+  padding-bottom: .5em;
+}
+.pb1 {
+  padding-bottom: 1em;
+}
+.pb2 {
+  padding-bottom: 2em;
+}
+.pt1 {
+  padding-top: 1em;
+}
+.pr05 {
+  padding-right: .5em;
+}
+.pr1 {
+  padding-right: 1em;
+}
+.pl1 {
+  padding-left: 1em;
+}
+
+/* Margin Styles */
+.ma {
+  margin: auto;
+}
+.mt1 {
+  margin-top: 1em;
+}
+.mt2 {
+  margin-top: 2em;
+}
+
+/* Border Styles */
+.bt {
+  border-top: 1px solid;
+}
+.br {
+  border-right: 1px solid;
+}
+.bb {
+  border-bottom: 1px solid;
+}
+.bl {
+  border-left: 1px solid;
+}
+.bw1 {
+  border-width: 1px
+}
+.bcLightGray {
+  border-color: lightgray
+}
+
+
+/* 
+* Loading Icon
+*/
+.icon {
+  animation: icon infinite 20s linear;
+}
+
+
+@keyframes icon {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
