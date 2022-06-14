@@ -13,7 +13,7 @@ function WeatherDisplay({ d, theme } : WeatherProps) {
       <Display>
         <>
           <div className="f fdc aic">
-            <div className="ft50">{d.current.temp_f} &deg;</div>
+            <div className="ft50 ml30">{d.current.temp_f} &deg;</div>
             <div className="pt1 f aic jcc">
               <img className="pr05" src={`${d.current.condition.icon}`} alt={`Current Condition: ${d.current.condition.text}`} />
               <span className="ttc">&mdash;&nbsp; {d.current.condition.text}, {theme === 1 ? "Day" : "Night"}</span>
