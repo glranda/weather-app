@@ -31,11 +31,11 @@
 }
 
 /* Alignment Styles */
-.poa {
-  position: absolute;
-}
 .por {
   position: relative;
+}
+.pof {
+  position: fixed;
 }
 .ofh {
   overflow: hidden;
@@ -101,6 +101,9 @@
 }
 .w90vw {
   width: 90vw;
+}
+.h100pc {
+  height: 100%;
 }
 .h100vh {
   height: 100vh;
