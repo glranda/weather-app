@@ -5,7 +5,7 @@ import "./styles.css";
 
 function WeatherDisplay({ d, theme } : WeatherProps) {
   return (
-    <div className={"w100pc h100vh ma por f fdc jcsb ofh weatherDisplay"}>
+    <div className={"w100pc h90vh ma por f fdc jcsb ofh weatherDisplay"}>
       <Clock>
         <div className="pb03 ft12">{d.location.localtime}{theme === 1 ? "pm" : "am"}</div>
         <div className="cGray ft10">Data last updated: {d.current.last_updated}{theme === 1 ? "pm" : "am"}</div>
@@ -41,7 +41,7 @@ function LoadingIcon() {
     <div className="mt2 f jcc fdc aic">
       <p>Loading Location...</p>
       <span className="pb1 alert"></span>
-      <img className="w140px icon" src={require('./spinning.png')} />
+      <img className="w140px icon" src={require('./spinning.png')} alt="Loading Location" />
     </div>
   )
 }
@@ -90,7 +90,7 @@ function Container() {
   //
 
   return (
-    <div className="ofh pr1 pl1 weatherApp">
+    <div className="ofh pr1 pl1 weatherApp" data-testid="weatherApp">
       {(data.length !== 0) ? (
         <WeatherDisplay d={data} theme={data.current.is_day}/>
       ): (
