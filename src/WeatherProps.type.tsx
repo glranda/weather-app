@@ -22,5 +22,6 @@ type D = {
   current: Current
 }
 export interface WeatherProps { 
-  d: D
+  d: D,
+  theme: number
 }
