@@ -73,6 +73,7 @@ function Container() {
           .then(response => response.json())
           .then(data => {
             const body = document.body;
+            body.classList.add("ofh");
             data.current.is_day === 1 ? body.setAttribute("data-theme", "lightMode") : body.setAttribute("data-theme", "darkMode")
             setData(data)
           })
@@ -87,7 +88,6 @@ function Container() {
     }
     fetchcurrentWeather()
   }, [])
-  //
 
   return (
     <div className="ofh pr1 pl1 weatherApp" data-testid="weatherApp">
