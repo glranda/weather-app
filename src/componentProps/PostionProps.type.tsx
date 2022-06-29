@@ -1,11 +1,11 @@
 interface Coords {
-  accuracy?: number,
-  altitude?: number,
-  altitudeAccuracy?: number,
-  heading?: number,
+  accuracy?: number | null,
+  altitude?: number | null,
+  altitudeAccuracy?: number | null,
+  heading?: number | null,
   latitude: number,
   longitude: number,
-  speed?: number,
+  speed?: number | null,
 }
 
 export interface PostionProps {

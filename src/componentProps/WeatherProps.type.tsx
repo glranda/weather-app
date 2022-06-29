@@ -1,8 +1,8 @@
-type Condition = { 
+type Condition = {
   icon: string,
   text: string
 }
-type Current = { 
+type Current = {
   feelslike_f: number,
   humidity: number,
   gust_mph: number,
@@ -11,17 +11,16 @@ type Current = {
   is_day: number,
   condition: Condition
 }
-type Location = { 
+type Location = {
   localtime: string,
   name: string,
   region: string,
   country: string
 }
-type data = { 
-  location: Location,
-  current: Current
+export interface WeatherData {
+  current: Current,
+  location: Location
 }
-export interface WeatherProps { 
-  data: data,
-  theme: number
+export interface WeatherProps {
+  data: WeatherData[]
 }
