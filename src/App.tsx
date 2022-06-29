@@ -6,7 +6,7 @@ import { WeatherData } from "./componentProps/WeatherProps.type";
 import "./styles.css";
 
 function Container() {
-  const [weather, setWeather] = useState<WeatherData[]>([])
+  const [weather, setWeather] = useState<WeatherData>()
   const [theme, setTheme] = useState<string>("")
 
   useEffect(() => {
@@ -45,7 +45,7 @@ function Container() {
 
   return (
     <div className="ofh pr1 pl1 h100pc weatherApp" data-testid="weatherApp" data-theme={theme}>
-      {(weather.length !== 0) ? (
+      {(weather && Object.keys(weather).length !== 0) ? (
         <WeatherDisplay data={weather} />
       ): (
         <LoadingIcon />

@@ -22,5 +22,5 @@ export interface WeatherData {
   location: Location
 }
 export interface WeatherProps {
-  data: WeatherData[]
+  data: WeatherData
 }
