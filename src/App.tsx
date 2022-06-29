@@ -7,7 +7,6 @@ import "./styles.css";
 function Container() {
   const [weather, setData] = useState<any>([])
   const [theme, setTheme] = useState<string>("")
-  console.log(weather)
 
   useEffect(() => {
     fetchCurrentWeather()
