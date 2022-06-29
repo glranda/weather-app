@@ -199,16 +199,16 @@
   --gray: #808080;
   --lightGray: #D3D3D3;
 }
-body[data-theme='lightMode'] {
+.weatherApp[data-theme='lightMode'] {
   --theme-text-color: #222;
   --theme-background: #FFF;
 }
-body[data-theme='darkMode'] {
+.weatherApp[data-theme='darkMode'] {
   --theme-text-color: #FFF;
   --theme-background: #808080;
   --gray: #FFF;
 }
-body {
+.weatherApp {
   background-color: var(--theme-background);
   color: var(--theme-text-color);
 }

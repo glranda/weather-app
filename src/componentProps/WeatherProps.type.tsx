@@ -17,11 +17,11 @@ type Location = {
   region: string,
   country: string
 }
-type D = { 
+type data = { 
   location: Location,
   current: Current
 }
 export interface WeatherProps { 
-  d: D,
+  data: data,
   theme: number
 }
