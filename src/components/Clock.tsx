@@ -7,5 +7,5 @@ export function Clock(props: ComponentProps) {
         {props.children}
       </div>
     </div>
-  )
+  );
 }

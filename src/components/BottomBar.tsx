@@ -7,5 +7,5 @@ export function BottomBar(props: ComponentProps) {
         {props.children}
       </div>
     </div>
-  )
+  );
 }
