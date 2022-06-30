@@ -1,10 +1,10 @@
 import { Clock } from "./Clock";
 import { Display } from "./Display";
 import { BottomBar } from "./BottomBar";
-import type { WeatherData, WeatherProps } from "../componentProps/WeatherProps.type";
+import type { WeatherProps } from "../componentProps/WeatherProps.type";
 
-export function WeatherDisplay({ data } : WeatherProps) {
-  const { location, current }: WeatherData = data
+export function WeatherDisplay({ data }: WeatherProps) {
+  const { location, current } = data;
   return (
     <div className={"w100pc h100pc ma por f fdc jcsb ofh"}>
       <Clock>
@@ -30,5 +30,5 @@ export function WeatherDisplay({ data } : WeatherProps) {
         <div className="cGray ft12">{location.country}</div>
       </BottomBar>
     </div>
-  )
+  );
 }

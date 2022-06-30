@@ -5,5 +5,5 @@ export function LoadingIcon() {
       <span className="pb1 alert"></span>
       <img className="w140px icon" src={require('../spinning.png')} alt="Loading Location" />
     </div>
-  )
+  );
 }

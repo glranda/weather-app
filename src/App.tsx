@@ -6,8 +6,8 @@ import { WeatherData } from "./componentProps/WeatherProps.type";
 import "./styles.css";
 
 function Container() {
-  const [weather, setWeather] = useState<WeatherData>()
-  const [theme, setTheme] = useState<string>("")
+  const [weather, setWeather] = useState<WeatherData>();
+  const [theme, setTheme] = useState<string>("");
 
   useEffect(() => {
     fetchCurrentWeather()
@@ -15,41 +15,34 @@ function Container() {
 
   async function getCoordinates() {
     const position: PostionProps = await new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        position => resolve(position),
-        error => reject(error)
-      )
-    })
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
     return {
       longitude: position.coords.longitude,
-      latitude: position.coords.latitude,
+      latitude: position.coords.latitude
     }
   }
-  
+
   async function fetchCurrentWeather() {
     try {
-      const position: { longitude: number, latitude: number } = await getCoordinates()
-      const url = `https://api.weatherapi.com/v1/current.json?key=d5b70fe190b04b6192a143809221306&q=${position.latitude},${position.longitude}`
-      const fetchUrl = await fetch(url)
-      const weatherData = await fetchUrl.json()
-      weatherData.current.is_day === 1 ? setTheme("lightMode") : setTheme("darkMode")
-      setWeather(weatherData)
+      const position: { longitude: number, latitude: number } = await getCoordinates();
+      const url = `https://api.weatherapi.com/v1/current.json?key=d5b70fe190b04b6192a143809221306&q=${position.latitude},${position.longitude}`;
+      const fetchUrl = await fetch(url);
+      const weatherData = await fetchUrl.json();
+      weatherData.current.is_day === 1 ? setTheme("lightMode") : setTheme("darkMode");
+      setWeather(weatherData);
     } catch(e) {
       if ((e as Error).message === "User denied Geolocation") {
-        alert("Please turn on Location Services to use this app!")
+        alert("Please turn on Location Services to use this app!");
       } else {
-        console.log(`Unable to fetch current weather data: ${(e as Error).message}`)
+        console.log(`Unable to fetch current weather data: ${(e as Error).message}`);
       }
     }
   }
 
   return (
     <div className="ofh pr1 pl1 h100pc weatherApp" data-testid="weatherApp" data-theme={theme}>
-      {(weather && Object.keys(weather).length !== 0) ? (
-        <WeatherDisplay data={weather} />
-      ): (
-        <LoadingIcon />
-      )}
+      {weather ? <WeatherDisplay data={weather} /> : <LoadingIcon />}
     </div>
   )
 }
